@@ -1,53 +1,48 @@
 class Solution {
 public:
-int numIslands(vector<vector<char>>& grid) {
-        int r=grid.size();
-        int c=grid[0].size();
-        int count=0;
-        vector<vector<bool>>vst(r,vector<bool>(c,0));
-        for(int i=0;i<r;i++)
+    int numIslands(vector<vector<char>>& grid) {
+        vector<pair<int,int>>ans;
+        // BFS lagata hu
+        queue<pair<int,int>>q;
+        int row = grid.size();
+        int col = grid[0].size();
+        vector<vector<bool>>vst(row,vector<bool>(col,0));
+        int count =0;
+        int dr[4] = {-1,1,0,0};
+        int dc[4] = {0,0,-1,1};
+        for(int i=0;i<row;i++)
         {
-            for(int j=0;j<c;j++)
+            for(int j=0;j<col;j++)
             {
-                if(grid[i][j]=='1' && vst[i][j]==false)
+                // if(grid[i][j]==1 && vst[i][j=='0'])
+                // {
+                //     vst[i][j]=1;
+                //     continue;
+                // }
+                if(grid[i][j]=='1' && !vst[i][j])
+                {
+                    count++;
+                    q.push(make_pair(i,j));
+                    while(!q.empty())
                     {
-                        // DFS logic 
-                        //vst[i][j]=true;
-                        count++;
-                        stack<pair<int,int>>nvst;
-                        nvst.push({i,j});
-                        while(!nvst.empty())
-                            {
-                               int cr=nvst.top().first;
-                               int cc=nvst.top().second;
-                               nvst.pop();
-                               // push all its neighbours
-                               if(vst[cr][cc])
-                               {
-                                    continue;
-                               }
-                                    
-                               else 
-                               {
-                                    vst[cr][cc]=true;
-                                    if(cr>=0 && cc-1>=0 && (vst[cr][cc-1]==false) && (grid[cr][cc-1]=='1'))
-                                        nvst.push({cr,(cc-1)});
-                                    if(cr>=0 && cc+1<c && (vst[cr][cc+1]==false) && (grid[cr][cc+1]=='1'))
-                                        nvst.push({cr,(cc+1)});
-                                    if(cr-1>=0 && cc>=0 && (vst[cr-1][cc]==false) && (grid[cr-1][cc]=='1'))
-                                        nvst.push({(cr-1),cc});
-                                    if(cr+1<r && cc>=0 && (vst[cr+1][cc]==false) && (grid[cr+1][cc]=='1'))
-                                        nvst.push({(cr+1),cc});
-                               }
-
-                                
-                            }
+                        int cr = q.front().first;
+                        int cc= q.front().second;
+                        q.pop();
+                        for(int k=0;k<4;k++)
+                        {
+                           int nr = cr +dr[k];
+                           int nc = cc+dc[k];
+                           if(nr>=0 && nr<row && nc>=0 and nc<col && grid[nr][nc]=='1' && vst[nr][nc]==false)
+                           {
+                                vst[nr][nc]=true;
+                                q.push({nr,nc});
+                           }
+                        }
                     }
-                    
-                    
 
+                }
             }
-        } 
-            return count;
+        }
+        return count;
     }
 };
