@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int coin_helper(vector<int>& coins,int amount,int n)
+    int coin_helper(vector<int>& coins,int amount,int n,vector )
     {
         if(amount==0)
             return 0;
