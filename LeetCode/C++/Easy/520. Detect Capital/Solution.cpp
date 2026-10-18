@@ -4,7 +4,8 @@ public:
         bool flag1 = false;
         if(isupper(word[0]))
             flag1=true;
-            
+        if(islower(word[0]))
+            return false;
         bool flag2 = false;
         if(word.size()>1 && isupper(word[1]))
             flag2 = true;
