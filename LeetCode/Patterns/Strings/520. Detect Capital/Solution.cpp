@@ -11,7 +11,7 @@ public:
         for(int i=2;i<word.size();i++)
         {
             if(islower(word[i]))
-                continue;
+                contin
             if(isupper(word[i]))
                 flag3=true;
             if(flag2!=flag3)
