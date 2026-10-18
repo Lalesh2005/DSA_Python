@@ -1,26 +1,26 @@
 class Solution {
 public:
     bool detectCapitalUse(string word) {
-        bool flag1 = false;
-        if(isupper(word[0]))
-            flag1=true;
-        if(islower(word[0]) && word.size()>1)
-            return false;
-        bool flag2 = false;
-        if(word.size()>1 && isupper(word[1]))
-            flag2 = true;
-        bool flag3 = false;
-        for(int i=2;i<word.size();i++)
-        {
-            if(islower(word[i]))
-                flag3=false;
-            if(isupper(word[i]))
-                flag3=true;
-            if(flag2!=flag3)
-                return false;
-        }
-        return true;
-        
+        int n = word.size();
 
+        bool allUpper = true;
+        bool allLower = true;
+        bool firstUpper = true;
+
+        for (int i = 0; i < n; i++) {
+            if (islower(word[i])) {
+                allUpper = false;
+            }
+
+            if (isupper(word[i])) {
+                allLower = false;
+
+                if (i > 0) {
+                    firstUpper = false;
+                }
+            }
+        }
+
+        return allUpper || allLower || firstUpper;
     }
 };
