@@ -1,6 +1,6 @@
 # 📝 520. Detect Capital (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/detect-capital)
+🔗 [Problem Link](https://leetcode.com/problems/detect-capital/)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen) ![Language](https://img.shields.io/badge/Language-C++-blue)
 
