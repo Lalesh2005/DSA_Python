@@ -1,26 +1,26 @@
 class ProductOfNumbers {
+    vector<int> prefix;
+
 public:
-    vector<int>nums;
     ProductOfNumbers() {
+        prefix.push_back(1);
     }
-    
+
     void add(int num) {
-        nums.push_back(num);
-    }
-    
-    int getProduct(int k) {
-        int mul = 1;
-        for(int i=nums.size()-1;i>=nums.size()-k;i--)
-        {
-            mul = mul*nums[i];
+        if (num == 0) {
+            prefix.clear();
+            prefix.push_back(1);
+        } 
+        else {
+            prefix.push_back(prefix.back() * num);
         }
-        return mul;
+    }
+
+    int getProduct(int k) {
+        if (k >= prefix.size()) {
+            return 0;
+        }
+
+        return prefix.back() / prefix[prefix.size() - k - 1];
     }
 };
-
-/**
- * Your ProductOfNumbers object will be instantiated and called as such:
- * ProductOfNumbers* obj = new ProductOfNumbers();
- * obj->add(num);
- * int param_2 = obj->getProduct(k);
- */
