@@ -12,6 +12,8 @@ public:
         int mul = 1;
         for(int i=nums.size()-1;i>=nums.size()-k;i--)
         {
+            if(nums[i]==0)
+                return 0;
             mul = mul*nums[i];
         }
         return mul;
