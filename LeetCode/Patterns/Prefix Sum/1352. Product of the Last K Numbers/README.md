@@ -1,6 +1,6 @@
 # 📝 1352. Product of the Last K Numbers (LeetCode)
 
-🔗 [Problem Link](https://leetcode.com/problems/product-of-the-last-k-numbers)
+🔗 [Problem Link](https://leetcode.com/problems/product-of-the-last-k-numbers/?envType=daily-question&envId=2026-11-23)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-orange) ![Language](https://img.shields.io/badge/Language-C++-blue)
 
