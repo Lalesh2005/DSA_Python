@@ -22,12 +22,11 @@ public:
             long long LCM = 1;
 
             for (int j = i; j < n; j++) {
-                if(product > LLONG_MAX / nums[j])
-{
-    break;
-}
+                if (product > LLONG_MAX / nums[j]) {
+                    break;
+                }
 
-product = product * nums[j];
+                product = product * nums[j];
                 GCD = gcd(GCD, nums[j]);
 
                 LCM = lcm(LCM, nums[j]);
